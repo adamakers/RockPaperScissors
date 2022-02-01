@@ -1,5 +1,5 @@
 
-// generate a random number between 1 and 3
+// generate a random number between 1 and 3 and returns choice
 function randomSelection() {
   const randomVal = Math.floor(Math.random() * (4 - 1) + 1);
   switch (randomVal) {
@@ -12,6 +12,7 @@ function randomSelection() {
   }
 }
 
+// prompts user for selection
 function getPlayerSelection() {
   let promptValue = prompt("Enter your selection").toLowerCase();
 
@@ -23,16 +24,11 @@ function getPlayerSelection() {
   return promptValue;
 }
 
-// player selection
-  // prompt asks what user wants to generate
-  // convert r - 1, p - 2, s - 3.
-    // dicitonary or switch case
-
+//Plays round and determines winner
 function playRound(userSelection, computerSelection) {
-
+  console.log('########################################################')
   console.log(`User chose: ${userSelection} |||| Computer chose: ${computerSelection}`);
   
-
   if (userSelection === computerSelection) {
     return 'Round tied!';
   }
@@ -51,6 +47,7 @@ function playRound(userSelection, computerSelection) {
     return "Computer Wins!";
   }
 }
+
 
 function game() {
   for (let i = 0; i < 5; i++) {
