@@ -10,4 +10,67 @@ html {
 
 body {
   background-color: #778DA9;
+  font-family:'Pontano Sans', Helvetica, sans-serif
 }
+
+/* General Styles */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  padding: 3rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 6rem;
+  color: #E0E1DD;
+}
+
+/* MAIN */
+main {
+  margin-top: 12rem;
+}
+
+main .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.tile {
+  width: 30%;
+  background-color: #393E41;
+  border-radius: 5px;
+  padding: 3rem;
+}
+
+.tile h2 {
+  color: #E0E1DD;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
+}
+
+.tile img {
+  width: 35%;
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 5rem;
+  filter: 
+}
+
+.tile button {
+  display: block;
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+
+
