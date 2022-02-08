@@ -13,6 +13,11 @@ body {
   font-family:'Pontano Sans', Helvetica, sans-serif
 }
 
+h3 {
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
 /* General Styles */
 .container {
   width: 90%;
@@ -71,6 +76,55 @@ main .container {
   margin: 0 auto;
   cursor: pointer;
 }
+
+/* RESULTS */
+
+.results {
+  margin-top: 4rem;
+}
+
+.results .container {
+  text-align: center;
+}
+
+.results h2 {
+  font-size: 3rem;
+  color: #E0E1DD;
+}
+
+.results .scoreboard {
+  display: flex;
+  justify-content: center;
+}
+
+.results .score-box {
+  margin: 3rem 5rem;
+}
+
+.results .score-box .score-num {
+  width: 100px;
+  padding: 3rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #000;
+  margin: 0 auto;
+  color: #E0E1DD;
+  font-size: 2.4rem;
+}
+
+.game-results {
+  width: 50%;
+  height: 100px;
+  margin: 0 auto;
+  border: 3px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #E0E1DD;
+  font-size: 2.2rem;
+}
+
 
 
 
