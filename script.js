@@ -21,43 +21,63 @@ function randomSelection() {
 
 //Plays round and determines winner
 function playRound(userSelection, computerSelection) {
-  console.log('########################################################')
-  console.log(`User chose: ${userSelection} |||| Computer chose: ${computerSelection}`);
+  // console.log('########################################################')
+  // console.log(`User chose: ${userSelection} |||| Computer chose: ${computerSelection}`);
   
+  const gameOutcome = {
+    userSelection: userSelection,
+    computerSelection: computerSelection
+  };
+
+
   if (userSelection === computerSelection) {
-    return -1;
+    gameOutcome.result = -1;
   }
 
   // 0 if computer wins 1 if user wins
   if  (userSelection === 'rock' && computerSelection === 'paper') {
-    return 0;
+    gameOutcome.result = 0;
   } else if (userSelection === 'rock' && computerSelection === 'scissors') {
-    return 1;
+    gameOutcome.result = 1;
   } else if (userSelection === 'paper' && computerSelection === 'scissors') {
-    return 0;
+    gameOutcome.result = 0;
   } else if (userSelection === 'paper' && computerSelection === 'rock') {
-    return 1;
+    gameOutcome.result = 1;
   } else if (userSelection === 'scissors' && computerSelection === 'paper') {
-    return 1;
+    gameOutcome.result = 1;
   } else if (userSelection === 'scissors' && computerSelection === 'rock') {
-    return 0;
+    gameOutcome.result = 0;
   }
+  return gameOutcome;
 }
 
-function updateScoreboard(gameResults) {
-  
-  if (gameResults === -1) {
-    resultsBoardPara.textContent = 'Game has Tied!';
-  } else if (gameResults === 0) {
+function updateScoreboard(gamePlayed) {
+  console.log(gamePlayed);
+  let gameStr = `Computer has played: ${gamePlayed.computerSelection}.  User has played: ${gamePlayed.userSelection}. `;
+
+  if (gamePlayed.result === -1) {
+    gameStr += 'Game has Tied!';
+  } else if (gamePlayed.result === 0) {
     score[0]++;
-    resultsBoardPara.textContent = 'Computer has won!';
+    gameStr += 'Computer has won!';
     computerScoreCountEl.textContent = score[0];
   } else {
     score[1]++;
-    resultsBoardPara.textContent = 'Player has won!';
+    gameStr += 'Player has won!';
     playerScoreCountEl.textContent = score[1];
   }
+
+  resultsBoardPara.textContent = gameStr;
   console.log(score);
+}
+
+function resetGame() {
+  score[0] = 0;
+  score[1] = 0;
+
+  computerScoreCountEl.textContent = score[0];
+  playerScoreCountEl.textContent = score[1];
+
 }
 
 
@@ -67,6 +87,14 @@ function game(playerSelection) {
   
   console.log(results);
   updateScoreboard(results);
+
+  let winString;
+  if (score[0] === 5 || score[1] === 5) {
+    const winnerStr = score[0] > score[1] ? 'Computer' : 'Player';
+    
+    resultsBoardPara.textContent = `${winnerStr} has won the game!  Make a selection to start again.`;
+    resetGame();
+  }
 }
 
 
